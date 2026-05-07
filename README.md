@@ -18,7 +18,7 @@ This maps a float to the legal code range `[64/1023, 940/1023]`. Values <0 go be
 ## Usage
 
 ```
-python lut_curve.py <cube_file> [options]
+python graphLUT.py <cube_file> [options]
 ```
 
 ### Arguments
@@ -41,7 +41,7 @@ python lut_curve.py <cube_file> [options]
 ### Basic usage -- sweep R, write CSV
 
 ```bash
-python lut_curve.py film.cube
+python graphLUT.py film.cube
 ```
 
 Produces `lut_curve.csv` with columns `x, out_r, out_g, out_b`.
@@ -49,61 +49,61 @@ Produces `lut_curve.csv` with columns `x, out_r, out_g, out_b`.
 ### Save to a specific CSV path
 
 ```bash
-python lut_curve.py film.cube --output film_r_curve.csv
+python graphLUT.py film.cube --output film_r_curve.csv
 ```
 
 ### Sweep the green channel
 
 ```bash
-python lut_curve.py film.cube --channel g --output film_g_curve.csv
+python graphLUT.py film.cube --channel g --output film_g_curve.csv
 ```
 
 ### Sweep over a sub-range
 
 ```bash
-python lut_curve.py film.cube --start 0.2 --end 0.8
+python graphLUT.py film.cube --start 0.2 --end 0.8
 ```
 
 ### Fix the non-swept channels at mid-grey
 
 ```bash
-python lut_curve.py film.cube --channel r --fixed-rgb 0.5 0.5 0.5
+python graphLUT.py film.cube --channel r --fixed-rgb 0.5 0.5 0.5
 ```
 
 ### Show an interactive plot with matplotlib
 
 ```bash
-python lut_curve.py film.cube --plot
+python graphLUT.py film.cube --plot
 ```
 
 ### Save plot as PNG (requires matplotlib)
 
 ```bash
-python lut_curve.py film.cube --plot-output film_curve.png
+python graphLUT.py film.cube --plot-output film_curve.png
 ```
 
 ### Save plot as SVG (no matplotlib needed)
 
 ```bash
-python lut_curve.py film.cube --plot-output film_curve.svg
+python graphLUT.py film.cube --plot-output film_curve.svg
 ```
 
 ### Show interactive plot and also save as SVG
 
 ```bash
-python lut_curve.py film.cube --plot --plot-output film_curve.svg
+python graphLUT.py film.cube --plot --plot-output film_curve.svg
 ```
 
 ### Plot only the swept channel's output
 
 ```bash
-python lut_curve.py film.cube --channel g --plot --plot-single-channel
+python graphLUT.py film.cube --channel g --plot --plot-single-channel
 ```
 
 ### Full example with all options
 
 ```bash
-python lut_curve.py film.cube \
+python graphLUT.py film.cube \
     --channel b \
     --start 0.1 \
     --end 0.9 \
