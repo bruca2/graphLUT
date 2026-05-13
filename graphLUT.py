@@ -126,7 +126,12 @@ def load_cube(path: str) -> CubeLUT:
                 domain_max = _parse_float_triplet(parts[1:], line_number)
                 continue
 
-            values.append(_parse_float_triplet(parts, line_number))
+            r, g, b = _parse_float_triplet(parts, line_number)
+            values.append((
+                (r * 1023.0 - 64.0) / 876.0,
+                (g * 1023.0 - 64.0) / 876.0,
+                (b * 1023.0 - 64.0) / 876
+            ))
 
     if size is None:
         raise ValueError("Missing LUT_3D_SIZE in .cube file.")
